@@ -13,23 +13,23 @@ def remove_tags(text):
 def send_email(sendto, subject, text):
          username = "omarguaba54@gmail.com" # 
          password = "Esculapio01" # Change this!
-           for i in range(3):
-             try:
-            print("Sending Email to {} (trial {})...".format(sendto, i+1))
-            server = smtplib.SMTP('smtp.gmail.com', 587)
-            server.starttls()
-            server.login(username, password)
-            msg = 'Subject: {}\n\n{}'.format(subject, text)
-            server.sendmail(username, sendto, msg)
-            server.quit()
-            print("Email sent!")
-            break
-             except Exception as e:
-            print("Failed to send email due to Exception:")
-            print(e)
+         for i in range(3):
+            try:
+             print("Sending Email to {} (trial {})...".format(sendto, i+1))
+             server = smtplib.SMTP('smtp.gmail.com', 587)
+             server.starttls()
+             server.login(username, password)
+             msg = 'Subject: {}\n\n{}'.format(subject, text)
+             server.sendmail(username, sendto, msg)
+             server.quit()
+             print("Email sent!")
+             break
+            except Exception as e:
+             print("Failed to send email due to Exception:")
+             print(e)
             
 
-fhand = urllib.request.urlopen ('https://www.chamber.nyc/directory.php?l=a') 
+fhand = urllib.request.urlopen ('https://www.chamber.nyc/directory.php?l=c') 
 
 
 for line in fhand: 
@@ -60,8 +60,9 @@ for line in fhand:
     if reg:
      	micorreo = reg[0]
  
-
- send_email(micorreo,"How to Get More Clients","""
+    if reg and usi:
+     
+     send_email(micorreo,"How to Get More Clients","""
 Hi {},
 
 My name is Omar Guaba. I am SEO expert who is offering my services to people like you to make them generate more sales.
@@ -87,7 +88,6 @@ Omar Guaba
      
      
      
-
 
 
 
